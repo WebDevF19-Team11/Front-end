@@ -14,18 +14,20 @@ export default class ItemList extends React.Component {
         })
 
     render() {
-        return(<div>
+        return (<div>
             <h2>Item list</h2>
             <ul className="list-group">
                 <li className="list-group-item">
-                    <input
-                        onChange={this.searchTitleChanged}
-                        value={this.state.searchTitle}
-                        className="form-control"/>
-                    <button
-                        className="btn btn-primary">Search</button>
+                    <div className="input-group">
+                        <input
+                            onChange={this.searchTitleChanged}
+                            value={this.state.searchTitle}
+                            className="form-control" />
+                        <button
+                            className="btn btn-primary input-group-append">Search</button>
+                    </div>
                 </li>
-               
+
             </ul>
         </div>)
     }
