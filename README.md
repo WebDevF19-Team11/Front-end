@@ -1,68 +1,22 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Web Development Project Proposal | Fall 2019
+## Team 11
+## PROBLEM STATEMENT
+The problem of items and belongings piling up is something that most families and homeowners face. The possibility to make both space and money by disposing the belongings is more ideal than just getting rid of them. A successful solution would be a marketplace that can effectively connect homeowners in need of making space in their homes by lending/renting belongings to possible buyers. 
 
-## Available Scripts
+## PROJECT GOALS
+### Goals & Objectives:
+The main goal for this website project is to promote the idea of “giving”/sharing, and selling instead of resorting to throwing items away. The option to borrow/rent items allows for better sustainability and benefits both the client and the lender by saving money and overall resources. The website will provide an easy solution for a client in need of purchasing or renting an item, and looking for possible sellers to get in contact with. The website allows the client and sellers to check the reputation and reviews of each other to make sure they are trustworthy, easy to work with users.
+### User Description:
+| User                 	| Main Functionalities                                                                                                          	|
+|----------------------	|--------------------------------------------	|
+| Admin                	| * Monitor users activities. * Deletes or adds categories and sections to the website.                                                                                                                         	|
+| Lender/Seller/lessor 	| * Adds items to sell or rent out in their profile. * Read Reviews from buyers and renters. * Direct messages to people who want certain items that they may have.                                             	|
+| Buyer/Renter         	| * Browse different items and add them to a favorite list. * Create a request for an item (Looking for an item). * Direct messages to sellers and lessors. * Review and rate sellers. * Review and rate items. 	|
 
-In the project directory, you can run:
+## LINKING WITH AN API
+### Amazon Product Advertising APIs:
 
-### `npm start`
+Amazon Product Advertising APIs provide many operations that can be used in our project. For example, the ItemSearch operation, that has many parameters that returns an Item object with item attributes. This operation can be used to get the prices of the items in the item’s page. It could be useful for users who want to compare between the prices of these items as the website is mainly designed to sell or rent out used items, it would be useful to know the price of the item when it’s new.
+Also Amazon provides another operation for similarity lookup. This operation could be useful to show the buyer or renter similar items at different price points. Which can help the user to decide if they want to rent or buy the used item or maybe get a similar item that is cheaper.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
