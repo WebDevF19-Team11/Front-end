@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);
+
 .App {
   text-align: center;
 }
@@ -22,6 +24,8 @@
 
 h3{
   color: darkred;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-align: center;
 }
 
 li.list-group-item {
