@@ -31,6 +31,13 @@ h3{
 li.list-group-item {
   display: flex;
 }
+ul.my-ul-search {
+  margin-bottom: 0;
+  padding-left: 0;
+}
+input.form-control.mr-sm-2 {
+  width: 25rem;
+}
 
 .container {
   width: 100%;

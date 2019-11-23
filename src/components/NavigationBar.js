@@ -35,6 +35,12 @@ export default class NaviagationBar  extends React.Component {
             <a class="nav-link" href="#">Register</a>
         </li>
         </ul>
+        <ul className="my-ul-search">
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </ul>
         <ul class="navbar-nav  " >
             <li class="nav-item ">
                 <a class="nav-link " href="#">Contact us</a>
