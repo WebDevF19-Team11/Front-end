@@ -1,6 +1,7 @@
 import React from 'react'
 import NaviagationBar from "./NavigationBar"
-import CardGroup from "./CardGroup"
+import MainItemView from "./mainItemView"
+import PrivacyPolicy from "./PrivacyPolicy"
 
 export default class MainPage extends React.Component {
     constructor(props) {
@@ -11,16 +12,7 @@ export default class MainPage extends React.Component {
         return ( 
             <div>
                 <NaviagationBar/>
-                <div class="mx-auto">
-                    <h3>
-                        Sell, rent out or give!
-                    </h3>
-                    <div className="container">
-                        <CardGroup/>
-                        <CardGroup/>
-                    </div>
-                    
-                </div>
+                <PrivacyPolicy/>
             </div>
         );
     }

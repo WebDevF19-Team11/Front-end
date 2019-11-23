@@ -1,4 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);
+@import url('https://fonts.googleapis.com/css?family=Exo|Exo+2&display=swap');
+
+/* font-family: 'Exo 2', sans-serif;
+font-family: 'Exo', sans-serif; */
 
 .App {
   text-align: center;
@@ -6,6 +10,13 @@
 
 .App-logo {
   height: 40vmin;
+}
+h1.t11-privacy-title {
+  text-align: center;
+  font-family: 'Exo', sans-serif;
+}
+h2.t11-pp-h2 {
+  font-family: 'Exo 2', sans-serif;
 }
 
 .App-header {
@@ -56,4 +67,13 @@ input.form-control.mr-sm-2 {
 
 .col-10 {
   font-weight: 900;
+}
+p {
+  text-align: justify;
+}
+
+.container-fluid.t11-container {
+  padding: 1rem;
+  padding-right: 3rem;
+  padding-left: 3rem;
 }
