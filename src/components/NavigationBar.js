@@ -1,5 +1,6 @@
 import React from 'react'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import logo from "../assets/logo2.png"
 export default class NaviagationBar  extends React.Component {
     constructor(props) {
         super(props)
@@ -11,7 +12,13 @@ export default class NaviagationBar  extends React.Component {
         return ( 
 <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Selorama</a>
+        <a class="navbar-brand">
+            <img src={logo}
+             width="35" 
+             height="30" 
+            class="d-inline-block align-top" 
+            alt=""/>
+        </a>
     <button class="navbar-toggler" type="button" 
             data-toggle="collapse" 
             data-target="#navbarNav" 

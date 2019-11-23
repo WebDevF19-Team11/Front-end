@@ -11,7 +11,7 @@ export default class MainItemView extends React.Component {
         return ( 
                 <div class="mx-auto">
                     <h3>
-                        Sell, rent out or give!
+                        Selorama | Sell, rent-out, or give!
                     </h3>
                     <div className="container">
                         <CardGroup/>
