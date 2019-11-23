@@ -1,4 +1,5 @@
 import React from 'react'
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 export default class NaviagationBar  extends React.Component {
     constructor(props) {
         super(props)
@@ -23,7 +24,8 @@ export default class NaviagationBar  extends React.Component {
         id="navbarNav">
         <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <Link className="nav-link" 
+                          to='/main'>Home</Link>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Make an offer</a>
@@ -46,7 +48,8 @@ export default class NaviagationBar  extends React.Component {
                 <a class="nav-link " href="#">Contact us</a>
             </li>
             <li class="nav-item ">
-                    <a class="nav-link" href="#">Privacy Policy</a>
+                    <Link className="nav-link" 
+                          to='/PrivacyPolicy'>Privacy Policy</Link>
             </li>
         </ul>
        
