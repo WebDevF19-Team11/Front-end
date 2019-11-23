@@ -15,6 +15,17 @@ h1.t11-privacy-title {
   text-align: center;
   font-family: 'Exo', sans-serif;
 }
+label {
+  font-family: 'Exo 2', sans-serif;
+}
+button.btn.btn-light {
+  margin-top: 10px;
+}
+.container-fluid.t11-container.t11-contactPage {
+  padding: 1rem;
+  padding-right: 20rem;
+  padding-left: 20rem;
+}
 h2.t11-pp-h2 {
   font-family: 'Exo 2', sans-serif;
 }
