@@ -1,6 +1,6 @@
 import React from 'react'
-import NaviagationBar from "./NavigationBar"
 import CardGroup from "./CardGroup"
+
 
 export default class MainItemView extends React.Component {
     constructor(props) {
@@ -8,17 +8,14 @@ export default class MainItemView extends React.Component {
     }
 
     render() {
-        return ( 
-                <div class="mx-auto">
-                    <h3>
-                        Selorama | Sell, rent-out, or give!
-                    </h3>
-                    <div className="container">
-                        <CardGroup/>
-                        <CardGroup/>
-                    </div>
-                    
-                </div>
+        return (
+            <div className="container-fluid">
+                <h1 className="t11-title  text-align-center">Selorama | Sell, Rent-Out, or Give!</h1>
+                <br/>
+                <CardGroup />
+                <br/>
+                <CardGroup />
+            </div>
         );
     }
 
