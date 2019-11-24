@@ -35,7 +35,8 @@ export default class NaviagationBar  extends React.Component {
                           to='/main'>Home</Link>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Make an offer</a>
+        <Link className="nav-link" 
+                          to='/offer'>Make an Offer</Link>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Login</a>
