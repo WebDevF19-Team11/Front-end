@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);
-@import url('https://fonts.googleapis.com/css?family=Exo|Exo+2&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Exo|Exo+2&display=swap");
 
 /* font-family: 'Exo 2', sans-serif;
 font-family: 'Exo', sans-serif; */
@@ -8,15 +8,27 @@ font-family: 'Exo', sans-serif; */
   text-align: center;
 }
 
+a.deco-none {
+  color:#000000 !important;
+  text-decoration:none;
+}
+
 .App-logo {
   height: 40vmin;
 }
 h1.t11-privacy-title {
   text-align: center;
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
+}
+h1.t11-title {
+  text-align: center;
+  font-family: "Exo", sans-serif;
+}
+.t11-title-Exo {
+  font-family: "Exo", sans-serif;
 }
 label {
-  font-family: 'Exo 2', sans-serif;
+  font-family: "Exo 2", sans-serif;
 }
 button.btn.btn-light {
   margin-top: 10px;
@@ -26,27 +38,38 @@ button.btn.btn-light {
   padding-right: 20rem;
   padding-left: 20rem;
 }
+.container-fluid.t11-container.t11-Page {
+  padding: 1rem;
+  padding-right: 20rem;
+  padding-left: 20rem;
+}
+.card {
+  display: inline-block;
+}
+.t11-item-container {
+  padding: 1rem;
+}
 h2.t11-pp-h2 {
-  font-family: 'Exo 2', sans-serif;
+  font-family: "Exo 2", sans-serif;
 }
 
 .App-header {
-    color: black;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    align-items: center !important;
-    white-space: nowrap !important;
-    margin-top: 0 !important;
+  color: black;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  align-items: center !important;
+  white-space: nowrap !important;
+  margin-top: 0 !important;
 }
 
 .App-link {
   color: #09d3ac;
 }
 
-h3{
+h3 {
   color: darkred;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   text-align: center;
 }
 
@@ -67,13 +90,12 @@ input.form-control.mr-sm-2 {
   text-align: center;
 }
 
-
 .list-group-item {
   position: relative;
   display: block;
-  padding: .75rem 1.25rem;
+  padding: 0.75rem 1.25rem;
   margin-bottom: -1px;
-  border: 1px solid rgba(0,0,0,.125);
+  border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 .col-10 {
@@ -82,9 +104,25 @@ input.form-control.mr-sm-2 {
 p {
   text-align: justify;
 }
+.text-align-center {
+  text-align: center;
+}
 
 .container-fluid.t11-container {
   padding: 1rem;
   padding-right: 3rem;
   padding-left: 3rem;
+}
+.text-align-left {
+  text-align: left;
+}
+.text-align-center {
+  text-align: center;
+}
+.bold-text {
+  font-weight: bold;
+}
+.card-group {
+  display: inline;
+  text-align: center;
 }
