@@ -54,7 +54,7 @@ export default class NaviagationBar  extends React.Component {
         <ul class="navbar-nav  " >
             <li class="nav-item ">
             <Link className="nav-link" 
-                          to='/contact'>Contact</Link>
+                          to='/contact'>Contact Us</Link>
             </li>
             <li class="nav-item ">
                     <Link className="nav-link" 
