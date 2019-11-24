@@ -9,7 +9,7 @@ export default class ContactUsPage extends React.Component {
     render() {
         return ( 
             <div class="container-fluid t11-container t11-contactPage">        
-                <h1 className="t11-privacy-title">Contact Form</h1>
+                <h1 className="t11-privacy-title">Contact Us</h1>
             <div class="mx-auto">
                 <div class="container">
                 <form className="form-group">
