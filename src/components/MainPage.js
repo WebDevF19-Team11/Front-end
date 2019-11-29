@@ -10,13 +10,13 @@ import ItemPage from './ItemPage'
 import ItemList from './ItemList'
 import MakeOffer from './MakeOffer'
 import ProfilePage from './ProfilePage'
+import AdminPage from './AdminPage'
 
 
 export default class MainPage extends React.Component {
     constructor(props) {
         super(props);
     }
-
     render() {
         return (
             <Router>
@@ -32,11 +32,9 @@ export default class MainPage extends React.Component {
                     <Route path='/register' component={RegisterPage} />
                     <Route path='/offer' component={MakeOffer}/>
                     <Route path='/profile' component={ProfilePage}/>
-
-
+                    <Route path='/Admin' component={AdminPage}/>
                 </div>
             </Router>
         );
     }
-
 }
