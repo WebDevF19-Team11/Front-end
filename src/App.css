@@ -137,3 +137,11 @@ p {
   display: inline;
   text-align: center;
 }
+
+.col.t11-register-col {
+  text-align: initial;
+}
+
+.form-group.t11-register-col {
+  text-align: initial;
+}
