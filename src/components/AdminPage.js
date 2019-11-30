@@ -11,7 +11,7 @@ export default class AdminPage extends React.Component {
 
     render() {
         return ( 
-            <div class="container-fluid t11-container t11-contactPage">        
+            <div class="container-fluid t11-container t11-adminPage">        
                 <h1 className="t11-privacy-title">Admin Control</h1>
             <div class="">
             <Router>

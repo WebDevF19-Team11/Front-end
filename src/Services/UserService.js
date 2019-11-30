@@ -16,6 +16,15 @@ export default class UserService {
         fetch(this.Url + "user/"+id,{
             method: 'DELETE'
             })
+
+    createNewUser = (newUser) =>
+        fetch(this.Url + "user", {
+            body: JSON.stringify(newUser),
+            headers: {
+            'Content-Type': 'application/json' },
+            method: 'POST'
+            }).then(response =>response.json());
+    
     
 
     

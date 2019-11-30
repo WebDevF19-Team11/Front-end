@@ -1,9 +1,57 @@
 import React, { Component } from 'react'
+import UserService from '../Services/UserService';
+import { thisExpression } from '@babel/types';
+import passwordHash from "password-hash";
+
+let userService = UserService.getInstance();
 
 export default class RegisterPage extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            firstname:"",
+            lastname:"",
+            username:"",
+            email:"",
+            password:""
+        }
     }
+    submitRegister(){
+       let hashedPassword =  passwordHash.generate(this.state.password);
+        let newUser = {
+            "firstname": this.state.firstname,
+            "name": this.state.lastname,
+            "pw": hashedPassword,
+            "username": this.state.username
+        }
+        userService.createNewUser(newUser);
+    }
+
+    firstnameChanged = event =>
+    this.setState({
+        firstname: event.target.value
+    })
+
+    lastnameChanged = event =>
+    this.setState({
+        lastname: event.target.value
+    })
+
+    usernameChanged = event =>
+    this.setState({
+        username: event.target.value
+    })
+
+    emailChanged = event =>
+    this.setState({
+        email: event.target.value
+    })
+
+    passwordChanged = event =>
+    this.setState({
+        password: event.target.value
+    })
+    
 
     render() {
         return (
@@ -16,13 +64,17 @@ export default class RegisterPage extends Component {
                             <div className="col t11-register-col">
                                 <label for="first-name">First name</label>
                                 <input id="first-name"
+                                        value={this.state.firstname}
+                                        onChange={this.firstnameChanged}
                                         type="text" 
                                         className="form-control" 
                                         placeholder="First name" />
                             </div>
                             <div className="col t11-register-col">
                                 <label for="Last-name">Last name</label>
-                                <input id="Last-name" 
+                                <input id="Last-name"
+                                        onChange={this.lastnameChanged}
+                                        value={this.state.lastname} 
                                         type="text" 
                                         className="form-control" 
                                         placeholder="Last name"/>
@@ -32,6 +84,8 @@ export default class RegisterPage extends Component {
                         <label for="username">Username</label>
                             <input type="text"
                                 className="form-control"
+                                value={this.state.username}
+                                onChange={this.usernameChanged}
                                 id="username"
                                 name="usename"
                                 placeholder="username" />
@@ -39,6 +93,8 @@ export default class RegisterPage extends Component {
                         <div className="form-group t11-register-col">
                         <label for="signup-emailId">Email</label>
                             <input type="text"
+                                value={this.state.email}
+                                onChange={this.emailChanged}
                                 className="form-control"
                                 id="signup-emailId"
                                 name="email"
@@ -47,12 +103,18 @@ export default class RegisterPage extends Component {
                         <div className="form-group t11-register-col">
                         <label for="signup-passwordId">Password</label>
                             <input type="text"
+                                value={this.state.password}
+                                onChange={this.passwordChanged}
                                 className="form-control"
                                 id="signup-passwordId"
                                 name="password"
                                 placeholder="Password" />
                         </div>
-                        <button type="button" class="btn btn-light">Submit</button>
+                        <button type="button"
+                                onClick={()=> this.submitRegister()}
+                                class="btn btn-light">
+                             Submit
+                        </button>
                     </form>
                 </div>
             </div>
