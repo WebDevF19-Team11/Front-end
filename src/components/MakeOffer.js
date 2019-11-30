@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import OfferService from '../Services/OfferService';
-let OfferService = OfferService.getInstance();
+let offerService = OfferService.getInstance();
 
 export default class MakeOffer extends Component {
     constructor(props) {
@@ -51,7 +51,7 @@ export default class MakeOffer extends Component {
             "quantity": this.state.quant
         }
 
-        OfferService.createNewOffer(newOffer);
+        offerService.createNewOffer(newOffer);
     }
     
 
