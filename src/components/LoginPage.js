@@ -3,6 +3,24 @@ import React, { Component } from 'react'
 export default class LoginPage extends Component {
     constructor(props) {
         super(props);
+        this.state ={
+            email:"",
+            pw:""
+        }
+    }
+
+    emailChanged = event =>
+    this.setState({
+        email: event.target.value
+    })
+
+    passwordChanged = event =>
+    this.setState({
+        pw: event.target.value
+    })
+
+    submitLogin(){
+
     }
 
     render() {
@@ -15,6 +33,8 @@ export default class LoginPage extends Component {
                         <div className="form-group text-align-left">
                             <label for="email">Email</label>
                             <input type="text"
+                                value={this.state.email}
+                                onChange ={this.emailChanged}
                                 className="form-control"
                                 id="login-emailId"
                                 name="email"
@@ -23,12 +43,18 @@ export default class LoginPage extends Component {
                         <div className="form-group text-align-left">
                             <label for="password">Password</label>
                             <input type="text"
+                                value={this.state.pw}
+                                onChange={this.passwordChanged}
                                 className="form-control"
                                 id="login-passwordId"
                                 name="password"
                                 placeholder="Your password.." />
                         </div>
-                        <button type="button" class="btn btn-light">Submit</button>
+                        <button type="button"
+                                onClick={this.submitLogin}
+                                class="btn btn-light">
+                                    Submit
+                        </button>
                     </form>
                 </div>
             </div>);
