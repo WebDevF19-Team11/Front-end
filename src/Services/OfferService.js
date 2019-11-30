@@ -1,25 +1,25 @@
-export default class ItemService {
+export default class OfferService {
     static myInstance = null;
     Url = "https://webdev-neu-backend.herokuapp.com/";
     static getInstance() {
-        if(ItemService.myInstance == null) {
-            ItemService.myInstance = new ItemService()
+        if(OfferService.myInstance == null) {
+            OfferService.myInstance = new OfferService()
         }
         return this.myInstance
     }
 
-    findAllItems =  () =>
-        fetch(this.Url+"item")
+    findAllOffers =  () =>
+        fetch(this.Url+"offer")
             .then(response => response.json())
             
-    deleteItem = (id)=>
-        fetch(this.Url + "item/"+id,{
+    deleteOffer = (id)=>
+        fetch(this.Url + "offer/"+id,{
             method: 'DELETE'
             })
     
-    createNewItem = (newItem) =>
-        fetch(this.Url + "item", {
-            body: JSON.stringify(newUser),
+    createNewOffer = (newOffer) =>
+        fetch(this.Url + "offer", {
+            body: JSON.stringify(newOffer),
             headers: {
             'Content-Type': 'application/json' },
             method: 'POST'
