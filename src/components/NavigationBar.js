@@ -2,7 +2,9 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import logo from "../assets/logo2.png"
 import Can from '../config/Can'
+import UserService from '../Services/UserService';
 
+let userService = UserService.getInstance();
 export default class NaviagationBar extends React.Component {
     constructor(props) {
         super(props)
@@ -82,7 +84,9 @@ export default class NaviagationBar extends React.Component {
                              {()=>
                                 <li class="nav-item">
                                   <Link className="nav-link"
-                                    to=''>Logout</Link>
+                                        to='main'>
+                                            Logout
+                                    </Link>
                                 </li>
                                 }
                              </Can>

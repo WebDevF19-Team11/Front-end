@@ -1,6 +1,7 @@
 import { AbilityBuilder } from '@casl/ability'
+import UserService from "../Services/UserService"
 // change user type to get the appropriate changes
-let userType = "A";
+let userService = UserService.getInstance();
 
 function subjectName(item) {
   if (!item || typeof item === 'string') {
@@ -12,19 +13,18 @@ function subjectName(item) {
 
 export default AbilityBuilder.define({ subjectName }, can => {
     //if user is Admin
-    if(userType == "A"){
+    if(userService.getUserType() == "A"){
         can(['see'], 'adminPages')
         can(['see'], 'logout')
     }
     //if user is Guest
-    if(userType == "G"){
+    if(userService.getUserType()  == "G"){
         can(['see'], 'login')
         can(['see'], 'register')
     }
     //if user is User
-    if(userType == "U"){
+    if(userService.getUserType()  == "U"){
         can(['see'], 'offer')
         can(['see'], 'logout')
-
     }
 })

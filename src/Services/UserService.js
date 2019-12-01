@@ -1,4 +1,9 @@
 export default class UserService {
+    constructor() {
+        this.state={
+            userType :"A",
+        }
+    }
     static myInstance = null;
     Url = "https://webdev-neu-backend.herokuapp.com/";
     static getInstance() {
@@ -7,6 +12,16 @@ export default class UserService {
         }
         return this.myInstance
     }
+
+    getUserType(){
+        return this.state.userType;
+    }
+    
+    logout(){
+        this.state.userType = "G";
+        console.log(this.state.userType)
+    }
+
 
     findAllUsers =  () =>
         fetch(this.Url+"user")

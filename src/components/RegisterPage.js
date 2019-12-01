@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import UserService from '../Services/UserService';
 import { thisExpression } from '@babel/types';
 import passwordHash from "password-hash";
 
+import UserService from '../Services/UserService';
 let userService = UserService.getInstance();
 
 export default class RegisterPage extends Component {
