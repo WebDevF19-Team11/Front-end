@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import logo from "../assets/logo2.png"
+import Can from '../config/Can'
 
 export default class NaviagationBar extends React.Component {
     constructor(props) {
@@ -35,18 +36,56 @@ export default class NaviagationBar extends React.Component {
                                 <Link className="nav-link"
                                     to='/main'>Home</Link>
                             </li>
-                            <li class="nav-item">
-                            <Link className="nav-link" 
-                          to='/offer'>Make an Offer</Link>
-                             </li>
-                            <li class="nav-item">
+                            
+                             <Can do="see" a="offer">
+                                 {()=>
+                                    <li class="nav-item">
+                                        <Link className="nav-link" 
+                                        to='/offer'>Make an Offer</Link>
+                                    </li>
+                                }
+                             </Can>
+                             <Can do="see" a="login">
+                                 {()=>
+                                 <li class="nav-item">
+                                    <Link className="nav-link"
+                                        to='/login'>Login</Link>
+                                </li>
+                                }
+                             </Can>
+                             <Can do="see" a="register">
+                                 {()=>
+                                 <li class="nav-item">
+                                 <Link className="nav-link"
+                                     to='/register'>Register</Link>
+                                </li>
+                                }
+                             </Can>
+                             <Can I="see" a="adminPages">
+                             {()=>
+                                <li class="nav-item">
+                                 <Link className="nav-link"
+                                     to='/admin/Users'>Control users</Link>
+                                </li>
+                                }
+                             </Can>
+                             <Can I="see" a="adminPages">
+                             {()=>
+                                <li class="nav-item">
                                 <Link className="nav-link"
-                                    to='/login'>Login</Link>
-                            </li>
-                            <li class="nav-item">
-                                <Link className="nav-link"
-                                    to='/register'>Register</Link>
-                            </li>
+                                    to='/admin/Items'>Control items</Link>
+                                </li>
+                                }
+                             </Can>
+                             <Can I="see" a="logout">
+                                 {/* implement logout */}
+                             {()=>
+                                <li class="nav-item">
+                                  <Link className="nav-link"
+                                    to=''>Logout</Link>
+                                </li>
+                                }
+                             </Can>
                         </ul>
                         <ul className="my-ul-search">
                             <form class="form-inline">
