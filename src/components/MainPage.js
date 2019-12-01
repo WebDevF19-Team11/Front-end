@@ -9,8 +9,9 @@ import RegisterPage from './RegisterPage'
 import ItemPage from './ItemPage'
 import ItemList from './ItemList'
 import MakeOffer from './MakeOffer'
-import ProfilePage from './ProfilePage'
 import AdminPage from './AdminPage'
+import ProfilePage from './ProfilePage'
+
 
 
 export default class MainPage extends React.Component {
