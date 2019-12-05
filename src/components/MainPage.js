@@ -10,7 +10,6 @@ import ItemPage from './ItemPage'
 import ItemList from './ItemList'
 import MakeOffer from './MakeOffer'
 import AdminPage from './AdminPage'
-import ProfilePage from './ProfilePage'
 
 
 
@@ -32,7 +31,6 @@ export default class MainPage extends React.Component {
                     <Route path='/login' component={LoginPage} />
                     <Route path='/register' component={RegisterPage} />
                     <Route path='/offer' component={MakeOffer}/>
-                    <Route path='/profile' component={ProfilePage}/>
                     <Route path='/Admin' component={AdminPage}/>
                 </div>
             </Router>

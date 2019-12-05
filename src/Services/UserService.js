@@ -1,7 +1,7 @@
 export default class UserService {
     constructor() {
         this.state={
-            userType :"A",
+            userType :"U",
         }
     }
     static myInstance = null;
