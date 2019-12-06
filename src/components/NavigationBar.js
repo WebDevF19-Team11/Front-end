@@ -99,7 +99,7 @@ export default class NaviagationBar extends React.Component {
                         <ul className="my-ul-search">
                             <form className="form-inline">
                                 <input className="form-control mr-sm-2" type="search" value={scope.state.title} onChange={scope.onSearchChange} placeholder="Search" aria-label="Search" />
-                                <Link to={'/Search/rdr/' + scope.state.title} ><button  className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> </Link>
+                                <Link to={'/rdr/' + scope.state.title} ><button  className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> </Link>
                             </form>
                         </ul>
                         <ul className="navbar-nav  " >

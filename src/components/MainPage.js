@@ -31,7 +31,7 @@ export default class MainPage extends React.Component {
                     <Route path='/Admin' component={AdminPage}/>
                     <Route path='/profile' component={ProfilePage}/>
                     <Route path='/Search/:title' component={SearchProductPage}/>
-                    <Route path='/Search/rdr/:title' component={SearchProductRedirectPage}/>
+                    <Route path='/rdr/:title' component={SearchProductRedirectPage}/>
                 </div>
             </Router>
         );
