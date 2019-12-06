@@ -28,8 +28,8 @@ export default class MainPage extends React.Component {
                     <Route path='/login' component={LoginPage} />
                     <Route path='/register' component={RegisterPage} />
                     <Route path='/offer' component={MakeOffer}/>
-                    <Route path='/profile' component={ProfilePage}/>
                     <Route path='/Admin' component={AdminPage}/>
+                    <Route path='/profile' component={ProfilePage}/>
                     <Route path='/Search/:title' component={SearchProductPage}/>
                     <Route path='/Search/rdr/:title' component={SearchProductRedirectPage}/>
                 </div>
