@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { thisExpression } from '@babel/types';
 import passwordHash from "password-hash";
 
 import UserService from '../Services/UserService';

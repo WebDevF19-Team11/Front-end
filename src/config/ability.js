@@ -13,17 +13,17 @@ function subjectName(item) {
 
 export default AbilityBuilder.define({ subjectName }, can => {
     //if user is Admin
-    if(userService.getUserType() == "A"){
+    if(userService.getUserType() === "A"){
         can(['see'], 'adminPages')
         can(['see'], 'logout')
     }
     //if user is Guest
-    if(userService.getUserType()  == "G"){
+    if(userService.getUserType()  === "G"){
         can(['see'], 'login')
         can(['see'], 'register')
     }
     //if user is User
-    if(userService.getUserType()  == "U"){
+    if(userService.getUserType()  === "U"){
         can(['see'], 'offer')
         can(['see'], 'logout')
     }

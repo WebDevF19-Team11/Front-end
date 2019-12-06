@@ -2,10 +2,6 @@ import React from 'react'
 import Card from "./Card"
 
 export default class ProfilePage extends React.Component {
-    constructor(props) {
-        super(props);
-
-    }
     render() {
         return (
             <div class="container-fluid t11-item-container">
@@ -14,7 +10,7 @@ export default class ProfilePage extends React.Component {
                         <div className="col-4">
                             <img src="https://images.homedepot-static.com/productImages/0b10f2de-892e-42b7-aed4-6fa738027a16/svn/storm-matte-formica-laminate-sheets-009121258512000-64_400_compressed.jpg"
                                 class="card-img-top"
-                                alt="Item Image" />
+                                alt="Item" />
                         </div>
                         <div className="col-8 text-align-left">
                             <h2 className="t11-title-Exo bold-text">Username</h2>

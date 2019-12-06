@@ -1,14 +1,9 @@
 import React from 'react'
 import AdminUserControlPage from './AdminUserControlPage';
 import AdminItemControlPage from './AdminItemControlPage';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 export default class AdminPage extends React.Component {
-    constructor(props) {
-        super(props);
-
-    }
-
     render() {
         return ( 
             <div class="container-fluid t11-container t11-adminPage">        

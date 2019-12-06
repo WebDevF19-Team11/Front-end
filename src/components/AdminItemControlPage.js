@@ -1,9 +1,6 @@
 import React from 'react'
 
 export default class AdminItemControlPage extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         return ( 
             <div class="container-fluid t11-container ">        
@@ -14,6 +11,4 @@ export default class AdminItemControlPage extends React.Component {
             </div>
         );
     }
-
-
 }

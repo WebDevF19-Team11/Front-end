@@ -1,11 +1,6 @@
 import React from 'react'
 
 export default class ContactUsPage extends React.Component {
-    constructor(props) {
-        super(props);
-
-    }
-
     render() {
         return ( 
             <div class="container-fluid t11-container t11-contactPage">        

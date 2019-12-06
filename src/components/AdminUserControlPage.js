@@ -32,7 +32,7 @@ export default class AdminUserControlPage extends React.Component {
 
     render() {
         return ( 
-            <div class="container-fluid t11-container ">        
+            <div className="container-fluid t11-container ">        
                 <h1 className="t11-privacy-title"> Users</h1>  
                 <div className="row d-flex justify-content-around">
                                         <div>
@@ -51,8 +51,8 @@ export default class AdminUserControlPage extends React.Component {
                       {
                           this.state.users.map(user => 
                             <div key= {user.userId}>
-                                <a  
-                                class="list-group-item list-group-item-action">
+                                <a href=""
+                                className="list-group-item list-group-item-action">
                                     <div className="row d-flex justify-content-around">
                                         <div>
                                             {user.userId}

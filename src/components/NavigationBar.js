@@ -1,47 +1,52 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import logo from "../assets/logo2.png"
 import Can from '../config/Can'
-import UserService from '../Services/UserService';
 
-let userService = UserService.getInstance();
 export default class NaviagationBar extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            title: ''
         }
+        this.onSearchChange = this.onSearchChange.bind(this);
     }
+
+    onSearchChange(event) {
+        this.setState({title: event.target.value});
+    }
+
     render() {
+        let scope = this;
         return (
             <div>
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand">
+                <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                    <a href="/main" className="navbar-brand">
                         <img src={logo}
                             width="35"
                             height="30"
-                            class="d-inline-block align-top"
-                            alt="" />
+                            className="d-inline-block align-top"
+                            alt="brand" />
                     </a>
-                    <button class="navbar-toggler" type="button"
+                    <button className="navbar-toggler" type="button"
                         data-toggle="collapse"
                         data-target="#navbarNav"
                         aria-controls="navbarNav"
                         aria-expanded="false"
                         aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                        <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse justify-content-between"
+                    <div className="collapse navbar-collapse justify-content-between"
                         id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
                                 <Link className="nav-link"
                                     to='/main'>Home</Link>
                             </li>
                             
                              <Can do="see" a="offer">
                                  {()=>
-                                    <li class="nav-item">
+                                    <li className="nav-item">
                                         <Link className="nav-link" 
                                         to='/offer'>Make an Offer</Link>
                                     </li>
@@ -49,7 +54,7 @@ export default class NaviagationBar extends React.Component {
                              </Can>
                              <Can do="see" a="login">
                                  {()=>
-                                 <li class="nav-item">
+                                 <li className="nav-item">
                                     <Link className="nav-link"
                                         to='/login'>Login</Link>
                                 </li>
@@ -57,7 +62,7 @@ export default class NaviagationBar extends React.Component {
                              </Can>
                              <Can do="see" a="register">
                                  {()=>
-                                 <li class="nav-item">
+                                 <li className="nav-item">
                                  <Link className="nav-link"
                                      to='/register'>Register</Link>
                                 </li>
@@ -65,7 +70,7 @@ export default class NaviagationBar extends React.Component {
                              </Can>
                              <Can I="see" a="adminPages">
                              {()=>
-                                <li class="nav-item">
+                                <li className="nav-item">
                                  <Link className="nav-link"
                                      to='/admin/Users'>Control users</Link>
                                 </li>
@@ -73,7 +78,7 @@ export default class NaviagationBar extends React.Component {
                              </Can>
                              <Can I="see" a="adminPages">
                              {()=>
-                                <li class="nav-item">
+                                <li className="nav-item">
                                 <Link className="nav-link"
                                     to='/admin/Items'>Control items</Link>
                                 </li>
@@ -82,7 +87,7 @@ export default class NaviagationBar extends React.Component {
                              <Can I="see" a="logout">
                                  {/* implement logout */}
                              {()=>
-                                <li class="nav-item">
+                                <li className="nav-item">
                                   <Link className="nav-link"
                                         to='main'>
                                             Logout
@@ -92,17 +97,17 @@ export default class NaviagationBar extends React.Component {
                              </Can>
                         </ul>
                         <ul className="my-ul-search">
-                            <form class="form-inline">
-                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            <form className="form-inline">
+                                <input className="form-control mr-sm-2" type="search" value={scope.state.title} onChange={scope.onSearchChange} placeholder="Search" aria-label="Search" />
+                                <Link to={'/Search/rdr/' + scope.state.title} ><button  className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> </Link>
                             </form>
                         </ul>
-                        <ul class="navbar-nav  " >
-                            <li class="nav-item ">
+                        <ul className="navbar-nav  " >
+                            <li className="nav-item ">
                                 <Link className="nav-link"
                                     to='/contact'>Contact</Link>
                             </li>
-                            <li class="nav-item ">
+                            <li className="nav-item ">
                                 <Link className="nav-link"
                                     to='/PrivacyPolicy'>Privacy Policy</Link>
                             </li>

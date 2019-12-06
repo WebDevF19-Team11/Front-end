@@ -1,27 +1,48 @@
 import React, { Component } from 'react'
+import BestBuyProductsService from '../Services/BestBuyProductsService';
 
 export default class ItemPage extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            sku: props.match.params.sku
+        }
+        this.bestBuyProductsService = new BestBuyProductsService();
     }
+
+    componentWillMount() {
+        let scope = this;
+        this.bestBuyProductsService.findProductBySKU(this.state.sku).then( response => {
+            scope.setState({product: response.products[0]})
+        });
+    }
+
+    getProperty(property) {
+        if (this.state.product === undefined) 
+            return undefined
+        else {
+            return this.state.product[property];
+        }
+    }
+
     render() {
+        let scope = this;
         return (
-            <div class="container-fluid t11-item-container">
+            <div className="container-fluid t11-item-container">
                 <div className="container">
                     <div className="row">
                         <div className="col-4">
-                            <img src="https://images.homedepot-static.com/productImages/0b10f2de-892e-42b7-aed4-6fa738027a16/svn/storm-matte-formica-laminate-sheets-009121258512000-64_400_compressed.jpg"
-                                class="card-img-top"
-                                alt="Item Image" />
+                            <img height="400" src={scope.getProperty('largeImage')}
+                                className="card-img-top"
+                                alt="Item" />
                         </div>
                         <div className="col-8 text-align-left">
-                            <h2 className="t11-title-Exo bold-text">Item Title</h2>
-                            <h5 className="t11-title-Exo">by Seller</h5>
+                            <h2 className="t11-title-Exo bold-text">{scope.getProperty('name')}</h2>
+                            <h5 className="t11-title-Exo">{scope.getProperty('manufacturer')}</h5>
                             <br></br>
-                            <p>Price: <span>$XX.XX</span></p>
+                            <p>Price: <span>${scope.getProperty('salePrice')}</span></p>
                             <br></br>
-                            <h5 className="t11-title-Exo">Item Description</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <h5 className="t11-title-Exo">{scope.getProperty('longDescription')}</h5>
                         </div>
                     </div>
                 </div>

@@ -12,7 +12,7 @@ export default class DetailsPage extends React.Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
         console.log(prevState)
         console.log(this.props.item)
-        if(prevState.item != this.props.item) {
+        if(prevState.item !== this.props.item) {
             console.log(this.state.item.largeImageUrl)
             this.setState({
                 item: this.props.item
@@ -23,7 +23,7 @@ export default class DetailsPage extends React.Component {
         return (<div>
             <h2>Item Details:</h2>
             <div>
-                <img src={"http://"+this.state.item.largeImageUrl}/>
+                <img src={"http://"+this.state.item.largeImageUrl} alt="img-url"/>
                 <h3>Item group:</h3>
                     <h4>
                         {this.state.item.productGroup}

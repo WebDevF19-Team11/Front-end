@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 export default class ItemList extends React.Component {
     constructor(props) {
         super(props);
@@ -36,7 +37,7 @@ export default class ItemList extends React.Component {
                                     className="list-group-item"
                                     key={item.id}>
                                     <div className="col-2">
-                                        <img src={"http://" + item.urlPictureSmall} />
+                                        <img src={"http://" + item.urlPictureSmall} alt="url-pic" />
                                     </div>
                                     <div className="col-10">
                                         {item.title}

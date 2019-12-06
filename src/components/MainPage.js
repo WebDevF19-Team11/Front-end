@@ -2,7 +2,7 @@ import React from 'react'
 import NaviagationBar from "./NavigationBar"
 import MainItemView from "./mainItemView"
 import PrivacyPolicy from "./PrivacyPolicy"
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import ContactUsPage from './ContactUsPage'
 import LoginPage from './LoginPage'
 import RegisterPage from './RegisterPage'
@@ -10,14 +10,10 @@ import ItemPage from './ItemPage'
 import ItemList from './ItemList'
 import MakeOffer from './MakeOffer'
 import AdminPage from './AdminPage'
-import ProfilePage from './ProfilePage'
-
-
-
+import ProfilePage from './profilePage'
+import SearchProductPage from './SearchProductPage'
+import SearchProductRedirectPage from './SearchProductRedirectPage'
 export default class MainPage extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         return (
             <Router>
@@ -25,7 +21,7 @@ export default class MainPage extends React.Component {
 
                     <NaviagationBar />
                     <Route path='/ItemList' component={ItemList} />
-                    <Route path='/ItemPage' component={ItemPage} />
+                    <Route path='/ItemPage/:sku' component={ItemPage} />
                     <Route path='/main' component={MainItemView} />
                     <Route path='/PrivacyPolicy' component={PrivacyPolicy} />
                     <Route path='/contact' component={ContactUsPage} />
@@ -34,6 +30,8 @@ export default class MainPage extends React.Component {
                     <Route path='/offer' component={MakeOffer}/>
                     <Route path='/profile' component={ProfilePage}/>
                     <Route path='/Admin' component={AdminPage}/>
+                    <Route path='/Search/:title' component={SearchProductPage}/>
+                    <Route path='/Search/rdr/:title' component={SearchProductRedirectPage}/>
                 </div>
             </Router>
         );

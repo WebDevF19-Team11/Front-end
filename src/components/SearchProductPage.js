@@ -1,20 +1,20 @@
-import React from 'react'
-import CardGroup from "./CardGroup"
+import React, { Component } from 'react'
 import BestBuyProductsService from '../Services/BestBuyProductsService';
+import CardGroup from "./CardGroup"
 
-
-export default class MainItemView extends React.Component {
+export default class SearchProductPage extends Component {
     constructor(props) {
         super(props);
-        this.bestBuyService = new BestBuyProductsService();
         this.state = {
-            products: []
+            products: [],
+            title: props.match.params.title
         }
+        this.bestBuyProductsService = new BestBuyProductsService();
     }
 
-    componentDidMount() {
+    componentWillMount() {
         let scope = this;
-        this.bestBuyService.findAllProductsByTitle("samsung").then(response => { 
+        this.bestBuyProductsService.findAllProductsByTitle(scope.state.title).then(response => { 
             scope.setState({ products: response.products }); 
         });
     }
@@ -38,5 +38,4 @@ export default class MainItemView extends React.Component {
             </div>
         );
     }
-
 }
