@@ -10,10 +10,16 @@ export default class NaviagationBar extends React.Component {
             title: ''
         }
         this.onSearchChange = this.onSearchChange.bind(this);
+        this.logout = this.logout.bind(this);
     }
 
     onSearchChange(event) {
         this.setState({title: event.target.value});
+    }
+
+    logout() {
+        console.log('logout')
+        localStorage.removeItem('auth-token');
     }
 
     render() {
@@ -85,16 +91,36 @@ export default class NaviagationBar extends React.Component {
                                 }
                              </Can>
                              <Can I="see" a="logout">
-                                 {/* implement logout */}
                              {()=>
                                 <li className="nav-item">
                                   <Link className="nav-link"
-                                        to='main'>
+                                        to='main' onClick={scope.logout}>
                                             Logout
                                     </Link>
                                 </li>
                                 }
                              </Can>
+
+                            <Can I="see" a="login">
+                             {()=> 
+                                <li className="nav-item"   >
+                                    <Link className="nav-link"
+                                        to='login'>
+                                            Login
+                                    </Link>
+                                </li>
+                             }
+                            </Can>
+                            <Can I="see" a="profile">
+                             {()=> 
+                                <li className="nav-item">
+                                    <Link className="nav-link"
+                                        to='profile'>
+                                            Profile
+                                    </Link>
+                                </li>
+                            }
+                            </Can>
                         </ul>
                         <ul className="my-ul-search">
                             <form className="form-inline">

@@ -42,5 +42,14 @@ export default class UserService {
     
     // login APIs needed 
 
+    getLoggedUser() {
+        const headers = new Headers();
+        headers.set('Authorization', 'Bearer ' + localStorage.getItem('auth-token'))
+        return fetch(this.Url + "api/user/whoami", {
+            headers: headers,
+            methos: 'GET'
+        })
+        .then(response => { return response.json() })
+    }
     
 }

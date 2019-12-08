@@ -25,6 +25,11 @@ export default class OfferService {
             method: 'POST'
             }).then(response =>response.json());
     
+    findAllBySellerUsername(username) {
+        return fetch(this.Url + "offer/" + username, {
+            method: 'GET'
+        }).then(response => { return response.json() })
+    }
 
     
 }

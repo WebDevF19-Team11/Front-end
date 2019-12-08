@@ -12,6 +12,7 @@ export default class Card extends React.Component {
 
 
     render() {
+        const scope = this;
         return (
             <div className="card">
                 <Link className="" to={ '/ItemPage/' + this.state.sku }>
@@ -23,6 +24,8 @@ export default class Card extends React.Component {
                     <div className="card-body">
                         <h5 className="card-title">{this.props.title}</h5>
                         <p className="card-text">{this.props.text}</p>
+                        <p className="card-text">{scope.props.price}</p>
+                        <p className="card-text">{scope.props.quantity}</p>
                         <p className="card-text"><small className="text-muted">Last updated {this.props.time} mins ago</small></p>
                     </div>
                 </Link>
