@@ -1,66 +1,58 @@
 import React, { Component } from 'react'
-import LoginService from '../Services/LoginService';
 
 export default class LoginPage extends Component {
     constructor(props) {
         super(props);
         this.state ={
-            username:"",
-            password:""
+            email:"",
+            pw:""
         }
-        this.submitLogin = this.submitLogin.bind(this);
     }
 
-    usernameChanged = event =>
+    emailChanged = event =>
     this.setState({
-        username: event.target.value
+        email: event.target.value
     })
 
     passwordChanged = event =>
     this.setState({
-        password: event.target.value
+        pw: event.target.value
     })
 
     submitLogin(){
-        const scope = this;
-        const loginService = new LoginService();
-        loginService.login(this.state.username, this.state.password).then(response => { 
-            localStorage.setItem('auth-token', response.idToken) ;
-            this.props.history.push('/profile');
-        });
+
     }
 
     render() {
         return (
-            <div className="container-fluid  t11-container t11-Page">
+            <div class="container-fluid  t11-container t11-Page">
                 <h1 className="t11-title">Log In</h1>
                 <br />
-                <div className="container">
+                <div class="container">
                     <form className="">
                         <div className="form-group text-align-left">
-                            <label for="username">Username</label>
+                            <label for="email">Email</label>
                             <input type="text"
-                                value={this.state.username}
-                                onChange ={this.usernameChanged}
+                                value={this.state.email}
+                                onChange ={this.emailChanged}
                                 className="form-control"
                                 id="login-emailId"
-                                name="username"
-                                placeholder="Your username.." />
+                                name="email"
+                                placeholder="Your email.." />
                         </div>
                         <div className="form-group text-align-left">
                             <label for="password">Password</label>
                             <input type="text"
-                                value={this.state.password}
+                                value={this.state.pw}
                                 onChange={this.passwordChanged}
                                 className="form-control"
                                 id="login-passwordId"
                                 name="password"
-                                type="password"
                                 placeholder="Your password.." />
                         </div>
                         <button type="button"
                                 onClick={this.submitLogin}
-                                className="btn btn-light">
+                                class="btn btn-light">
                                     Submit
                         </button>
                     </form>

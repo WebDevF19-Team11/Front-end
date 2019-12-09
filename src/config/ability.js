@@ -27,11 +27,4 @@ export default AbilityBuilder.define({ subjectName }, can => {
         can(['see'], 'offer')
         can(['see'], 'logout')
     }
-    if(localStorage.getItem('auth-token')) {
-        can(['see'], 'logout')
-        can(['see'], 'profile')
-    }
-    if(!localStorage.getItem('auth-token')) {
-        can(['see'], 'login')
-    }
 })
