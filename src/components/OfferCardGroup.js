@@ -9,6 +9,14 @@ export default class OfferCardGroup extends React.Component {
         }
     }
 
+    getItemId(index) {
+        if (this.state.products.length === 0) {
+            return undefined;
+        } else if (this.state.products[index]) {
+            return this.state.products[index].item.itemId;
+        }
+    }
+
     getTitle(index) {
         if (this.state.products.length === 0) {
             return undefined;
@@ -39,8 +47,8 @@ export default class OfferCardGroup extends React.Component {
             <div className="card-group">
                 {scope.state.products.map((value, index) => {
                     return (
-                        <div className="card card-padding border-light" key= {index}>
-                            <Link className="" to={'/Offer/'}>
+                        <div className="card card-padding border-light" key={index}>
+                            <Link className="" to={'/ItemPage/' + scope.getItemId(index)}>
                                 <img src="https://images.homedepot-static.com/productImages/0b10f2de-892e-42b7-aed4-6fa738027a16/svn/storm-matte-formica-laminate-sheets-009121258512000-64_400_compressed.jpg"
                                     height="150"
                                     width="150"

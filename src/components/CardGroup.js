@@ -9,8 +9,6 @@ export default class CardGroup extends React.Component {
         }
     }
 
-   
-
     getName(index) {
         if (this.state.products.length === 0) {
             return undefined;

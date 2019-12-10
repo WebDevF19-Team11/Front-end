@@ -14,8 +14,7 @@ import SearchProductPage from './SearchProductPage'
 import SearchProductRedirectPage from './SearchProductRedirectPage'
 import UserService from '../Services/UserService';
 import { Switch } from 'react-router';
-import { BrowserRouter } from 'react-router-dom';
-import Route from 'react-router-hooks';
+import { BrowserRouter, Route } from 'react-router-dom'
 
 let userService = UserService.getInstance();
 
