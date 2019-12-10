@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import passwordHash from "password-hash";
+import { Redirect } from 'react-router-dom'
 
 import UserService from '../Services/UserService';
 let userService = UserService.getInstance();
@@ -21,9 +22,17 @@ export default class RegisterPage extends Component {
             "firstname": this.state.firstname,
             "name": this.state.lastname,
             "pw": hashedPassword,
-            "username": this.state.username
+            "username": this.state.username,
+            "offerList": []
         }
-        userService.createNewUser(newUser);
+        userService.createNewUser(newUser).then(response => {
+            if(response == "done"){
+                this.props.history.push('/login')
+            }
+            else {
+                alert("Error, please try again!");
+            }
+        })
     }
 
     firstnameChanged = event =>
@@ -110,7 +119,9 @@ export default class RegisterPage extends Component {
                                 placeholder="Password" />
                         </div>
                         <button type="button"
-                                onClick={()=> this.submitRegister()}
+                                onClick={()=> {
+                                    this.submitRegister()
+                                }}
                                 class="btn btn-light">
                              Submit
                         </button>

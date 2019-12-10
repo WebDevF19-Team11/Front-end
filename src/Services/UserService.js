@@ -1,7 +1,7 @@
 export default class UserService {
     constructor() {
         this.state={
-            userType :"U",
+            userType :"G",
         }
     }
     static myInstance = null;
@@ -38,7 +38,13 @@ export default class UserService {
             headers: {
             'Content-Type': 'application/json' },
             method: 'POST'
-            }).then(response =>response.json());
+            }).then(resposne => {
+                if(resposne.status == 200){
+                    return "done"
+                } else {
+                    return "error"
+                }
+            });
     
     // login APIs needed 
 
