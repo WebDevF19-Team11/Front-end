@@ -111,9 +111,6 @@ export default class NaviagationBar extends React.Component {
 
                     </div>
                 </nav>
-                <h1>
-                    {this.state.userType}
-                </h1>
             </div>
         );
     }
