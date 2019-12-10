@@ -1,15 +1,19 @@
 import React from 'react'
 import Card from "./Card"
-
+import UserService from '../Services/UserService';
+let userService = UserService.getInstance();
 
 export default class ProfilePage extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            user :""
+        }
+    }
+    componentDidMount() {
+        this.state.user = userService.getCurrentUser();
     }
 
-    componentDidMount() {
-        
-    }
     render() {
         return (
             <div className="container-fluid t11-item-container">
@@ -21,13 +25,13 @@ export default class ProfilePage extends React.Component {
                                 alt="Item" />
                         </div>
                         <div className="col-8 text-align-left">
-        <h2 className="t11-title-Exo bold-text">{this.props.user.username}</h2>
+        <h2 className="t11-title-Exo bold-text">{userService.getCurrentUser().username}</h2>
                             <br/>
-                            <h5 className="col-8 text-align-left">First Name: {this.props.user.firstName}</h5>
-                            <h5 className="col-8 text-align-left">Last Name: {this.props.user.lastName}</h5>
-                            
+                            <h5 className="col-8 text-align-left">First Name: {userService.getCurrentUser().firstname}</h5>
+                            <h5 className="col-8 text-align-left">Last Name: {userService.getCurrentUser().name}</h5>
+{/*                             
                             <h5 className="t11-title-Exo">Items</h5>
-                            {/* { this.state.offers.map((offer, index) => {
+                            { userService.getCurrentUser().offers.map((offer, index) => {
                                 
                                 return <Card key={index} title={offer.item.title} text={offer.item.description} price={'$' + offer.price} quantity={'Quantity: ' + offer.quantity} time="10"/>
                             })} */}

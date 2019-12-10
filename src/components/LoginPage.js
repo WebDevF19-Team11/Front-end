@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import UserService from '../Services/UserService';
+let userService = UserService.getInstance();
 
 export default class LoginPage extends Component {
     constructor(props) {
@@ -19,8 +21,12 @@ export default class LoginPage extends Component {
         pw: event.target.value
     })
 
-    submitLogin(){
-
+    submitLogin = () => {
+        userService.login(this.state.email , this.state.pw).then(response =>{
+            userService.setUser(response);
+            this.props.history.push('/profile')
+        })
+     
     }
 
     render() {
@@ -31,14 +37,14 @@ export default class LoginPage extends Component {
                 <div class="container">
                     <form className="">
                         <div className="form-group text-align-left">
-                            <label for="email">Email</label>
+                            <label for="email">Username</label>
                             <input type="text"
                                 value={this.state.email}
                                 onChange ={this.emailChanged}
                                 className="form-control"
                                 id="login-emailId"
                                 name="email"
-                                placeholder="Your email.." />
+                                placeholder="Your username.." />
                         </div>
                         <div className="form-group text-align-left">
                             <label for="password">Password</label>
@@ -51,7 +57,7 @@ export default class LoginPage extends Component {
                                 placeholder="Your password.." />
                         </div>
                         <button type="button"
-                                onClick={this.submitLogin}
+                                onClick={()=> this.submitLogin()}
                                 class="btn btn-light">
                                     Submit
                         </button>

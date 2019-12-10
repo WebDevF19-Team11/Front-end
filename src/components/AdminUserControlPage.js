@@ -27,9 +27,7 @@ export default class AdminUserControlPage extends React.Component {
         userService.deleteUser(userId).then(()=>{
             this.getAllUsers();
         })
-        
     }
-
     render() {
         return ( 
             <div className="container-fluid t11-container ">        

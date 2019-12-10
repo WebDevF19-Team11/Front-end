@@ -1,32 +1,32 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from "../assets/logo2.png"
-import Can from '../config/Can'
 
 export default class NaviagationBar extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            title: ''
+            title: '',
+            userType:this.props.userType
         }
         this.onSearchChange = this.onSearchChange.bind(this);
     }
-
     onSearchChange(event) {
         this.setState({title: event.target.value});
     }
-
+    
     render() {
         let scope = this;
         return (
             <div>
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                    <a href="/main" className="navbar-brand">
+                    <a href="/main" 
+                    className="navbar-brand">
                         <img src={logo}
                             width="35"
                             height="30"
                             className="d-inline-block align-top"
-                            alt="brand" />
+                            alt="brand"/>
                     </a>
                     <button className="navbar-toggler" type="button"
                         data-toggle="collapse"
@@ -43,58 +43,53 @@ export default class NaviagationBar extends React.Component {
                                 <Link className="nav-link"
                                     to='/main'>Home</Link>
                             </li>
-                            
-                             <Can do="see" a="offer">
-                                 {()=>
-                                    <li className="nav-item">
+                            {this.state.userType=="U" && 
+                                     <li className="nav-item">
                                         <Link className="nav-link" 
                                         to='/offer'>Make an Offer</Link>
                                     </li>
-                                }
-                             </Can>
-                             <Can do="see" a="login">
-                                 {()=>
-                                 <li className="nav-item">
+                            }
+                            {this.state.userType=="G" && 
+                                    <li className="nav-item">
                                     <Link className="nav-link"
                                         to='/login'>Login</Link>
                                 </li>
-                                }
-                             </Can>
-                             <Can do="see" a="register">
-                                 {()=>
+                            }
+                            {this.state.userType=="G" && 
+                                     <li className="nav-item">
+                                     <Link className="nav-link"
+                                         to='/register'>Register</Link>
+                                    </li>
+                            }
+                            {this.state.userType=="A" && 
+                                    <li className="nav-item">
+                                    <Link className="nav-link"
+                                        to='/admin/Users'>Control users</Link>
+                                   </li>
+                            }
+                            {this.state.userType=="A" && 
+                                   <li className="nav-item">
+                                   <Link className="nav-link"
+                                       to='/admin/Items'>Control items</Link>
+                                   </li>
+                            }
+                            {this.state.userType=="A" && 
                                  <li className="nav-item">
                                  <Link className="nav-link"
-                                     to='/register'>Register</Link>
-                                </li>
-                                }
-                             </Can>
-                             <Can I="see" a="adminPages">
-                             {()=>
-                                <li className="nav-item">
-                                 <Link className="nav-link"
-                                     to='/admin/Users'>Control users</Link>
-                                </li>
-                                }
-                             </Can>
-                             <Can I="see" a="adminPages">
-                             {()=>
-                                <li className="nav-item">
-                                <Link className="nav-link"
-                                    to='/admin/Items'>Control items</Link>
-                                </li>
-                                }
-                             </Can>
-                             <Can I="see" a="logout">
-                                 {/* implement logout */}
-                             {()=>
-                                <li className="nav-item">
-                                  <Link className="nav-link"
-                                        to='main'>
-                                            Logout
-                                    </Link>
-                                </li>
-                                }
-                             </Can>
+                                       to='main'>
+                                           Logout
+                                   </Link>
+                               </li>
+                            }
+                             {this.state.userType=="U" && 
+                            <li className="nav-item">
+                            <Link className="nav-link"
+                                  to='main'>
+                                      Logout
+                              </Link>
+                          </li>
+                       }
+                            
                         </ul>
                         <ul className="my-ul-search">
                             <form className="form-inline">
@@ -116,6 +111,9 @@ export default class NaviagationBar extends React.Component {
 
                     </div>
                 </nav>
+                <h1>
+                    {this.state.userType}
+                </h1>
             </div>
         );
     }

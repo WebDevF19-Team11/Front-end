@@ -2,6 +2,7 @@ export default class UserService {
     constructor() {
         this.state={
             userType :"G",
+            user: ""
         }
     }
     static myInstance = null;
@@ -11,6 +12,16 @@ export default class UserService {
             UserService.myInstance = new UserService()
         }
         return this.myInstance
+    }
+
+    setUser = (user) =>{
+        this.state.user = user;
+        this.state.userType = "U"   
+ 
+    }
+
+    getCurrentUser = () =>{
+        return this.state.user;
     }
 
     getUserType(){
@@ -25,12 +36,37 @@ export default class UserService {
 
     findAllUsers =  () =>
         fetch(this.Url+"user")
-            .then(response => response.json())
+            .then(response => {
+                return response.json();
+            })
             
     deleteUser = (id)=>
         fetch(this.Url + "user/"+id,{
             method: 'DELETE'
             })
+
+    login = (username, pass)=>
+        this.findAllUsers().then(
+            response =>{
+                let potUser;
+                let users = [];
+                users = response;
+                users.forEach(
+                    user =>{
+                        if(user.username == username){
+                            potUser = user;
+                        }
+                    }
+                )
+                if(potUser.pw == pass){
+                    return potUser;
+                }
+                else{
+                    return "error";
+                }
+            }
+        )
+        
 
     createNewUser = (newUser) =>
         fetch(this.Url + "user", {
