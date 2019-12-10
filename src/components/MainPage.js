@@ -18,7 +18,6 @@ export default class MainPage extends React.Component {
         return (
             <Router>
                 <div>
-
                     <NaviagationBar />
                     <Route path='/ItemList' component={ItemList} />
                     <Route path='/ItemPage/:sku' component={ItemPage} />
