@@ -1,6 +1,8 @@
 const userWithRoles = [
    { username: 'admin', password: 'admin', role: 'admin' },
-   { username: 'test user', password: 'test', role: 'user' },
+   { username: 'bob', password: 'bob', role: 'user' },
+   { username: 'charlie', password: 'charlie', role: 'user' },
+   { username: 'dan', password: 'dan', role: 'user' },
    { username: 'another admin', password: 'test', role: 'admin' },
    { username: 'alice', password: 'alice', role: 'user' },
   
