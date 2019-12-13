@@ -1,56 +1,59 @@
 import React, { Component } from 'react'
-import UserService from '../Services/UserService';
-let userService = UserService.getInstance();
+import { withRouter } from 'react-router-dom'
+import { setRole, authenticateUser } from '../Services/UserService';
 
-export default class LoginPage extends Component {
+ class LoginPage extends Component {
     constructor(props) {
         super(props);
         this.state ={
-            email:"",
-            pw:""
+            username:"",
+            password:"",
+            userError: ''
         }
     }
 
-    emailChanged = event =>
-    this.setState({
-        email: event.target.value
-    })
 
-    passwordChanged = event =>
-    this.setState({
-        pw: event.target.value
-    })
+    handleChange = event => {
+        this.setState({[event.target.name]: event.target.value});
+    }
 
     submitLogin = () => {
-        userService.login(this.state.email , this.state.pw).then(response =>{
-            userService.setUser(response);
-            this.props.history.push('/profile')
-        })
-     
+       const user = authenticateUser(this.state.username, this.state.password);
+       if (user) {
+        setRole(user.role);
+        this.props.emitNewUserType(user.role);
+        this.props.history.push('/profile');
+        return;
+       }
+
+       this.setState({userError: 'User not found', username: '', password: ''})
+        
     }
 
     render() {
+        const { userError } = this.state;
         return (
             <div class="container-fluid  t11-container t11-Page">
                 <h1 className="t11-title">Log In</h1>
                 <br />
+                { userError && <h1 className="t11-title">{userError}</h1>}
                 <div class="container">
                     <form className="">
                         <div className="form-group text-align-left">
-                            <label for="email">Username</label>
+                            <label for="username">Username</label>
                             <input type="text"
-                                value={this.state.email}
-                                onChange ={this.emailChanged}
+                                value={this.state.username}
+                                onChange ={this.handleChange}
                                 className="form-control"
                                 id="login-emailId"
-                                name="email"
+                                name="username"
                                 placeholder="Your username.." />
                         </div>
                         <div className="form-group text-align-left">
                             <label for="password">Password</label>
-                            <input type="text"
-                                value={this.state.pw}
-                                onChange={this.passwordChanged}
+                            <input type="password"
+                                value={this.state.password}
+                                onChange={this.handleChange}
                                 className="form-control"
                                 id="login-passwordId"
                                 name="password"
@@ -67,3 +70,5 @@ export default class LoginPage extends Component {
     }
 
 }
+
+export default withRouter(LoginPage)

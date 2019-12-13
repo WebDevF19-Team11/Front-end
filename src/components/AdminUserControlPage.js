@@ -1,8 +1,8 @@
 import React from 'react'
-import UserService from '../Services/UserService';
+import { getUsers } from '../Services/UserService';
 import { FaTrash } from 'react-icons/fa'
 
-let userService = UserService.getInstance();
+// let userService = UserService.getInstance();
 export default class AdminUserControlPage extends React.Component {
     
     constructor(props) {
@@ -15,18 +15,18 @@ export default class AdminUserControlPage extends React.Component {
         this.getAllUsers();
     }
     getAllUsers(){
-        userService.findAllUsers().then(response =>{
+       getUsers().then(response => {
             this.setState({
                 users: response,
-            });
+              });
         });
     }
 
     deleteUser(userId){
-        console.log(userId);
-        userService.deleteUser(userId).then(()=>{
-            this.getAllUsers();
-        })
+        return null;
+       // userService.deleteUser(userId).then(()=>{
+        //    this.getAllUsers();
+       // })
     }
     render() {
         return ( 
@@ -47,7 +47,7 @@ export default class AdminUserControlPage extends React.Component {
                                         </div>
                                     </div>
                       {
-                          this.state.users.map(user => 
+                        this.state.users.map(user => 
                             <div key= {user.userId}>
                                 <a href=""
                                 className="list-group-item list-group-item-action">

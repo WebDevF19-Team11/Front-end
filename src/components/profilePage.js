@@ -1,7 +1,5 @@
 import React from 'react'
 import Card from "./Card"
-import UserService from '../Services/UserService';
-let userService = UserService.getInstance();
 
 export default class ProfilePage extends React.Component {
     constructor(props) {
@@ -11,7 +9,7 @@ export default class ProfilePage extends React.Component {
         }
     }
     componentDidMount() {
-        this.state.user = userService.getCurrentUser();
+       // this.state.user = userService.getCurrentUser();
     }
 
     render() {
@@ -25,10 +23,10 @@ export default class ProfilePage extends React.Component {
                                 alt="Item" />
                         </div>
                         <div className="col-8 text-align-left">
-        <h2 className="t11-title-Exo bold-text">{userService.getCurrentUser().username}</h2>
+        <h2 className="t11-title-Exo bold-text">test username</h2>
                             <br/>
-                            <h5 className="col-8 text-align-left">First Name: {userService.getCurrentUser().firstname}</h5>
-                            <h5 className="col-8 text-align-left">Last Name: {userService.getCurrentUser().name}</h5>
+                            <h5 className="col-8 text-align-left">First Name:''</h5>
+                            <h5 className="col-8 text-align-left">Last Name: ''</h5>
 {/*                             
                             <h5 className="t11-title-Exo">Items</h5>
                             { userService.getCurrentUser().offers.map((offer, index) => {

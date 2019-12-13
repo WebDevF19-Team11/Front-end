@@ -3,7 +3,6 @@ import passwordHash from "password-hash";
 import { Redirect } from 'react-router-dom'
 
 import UserService from '../Services/UserService';
-let userService = UserService.getInstance();
 
 export default class RegisterPage extends Component {
     constructor(props) {
@@ -25,14 +24,14 @@ export default class RegisterPage extends Component {
             "username": this.state.username,
             "offerList": []
         }
-        userService.createNewUser(newUser).then(response => {
-            if(response == "done"){
-                this.props.history.push('/login')
-            }
-            else {
-                alert("Error, please try again!");
-            }
-        })
+       // userService.createNewUser(newUser).then(response => {
+         //   if(response == "done"){
+            //    this.props.history.push('/login')
+          //  }
+           // else {
+          //      alert("Error, please try again!");
+          //  }
+      //  })
     }
 
     firstnameChanged = event =>

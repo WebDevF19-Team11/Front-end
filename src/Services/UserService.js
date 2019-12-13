@@ -1,88 +1,34 @@
-export default class UserService {
-    constructor() {
-        this.state={
-            userType :"G",
-            user: ""
-        }
-    }
-    static myInstance = null;
-    Url = "https://webdev-neu-backend.herokuapp.com/";
-    static getInstance() {
-        if(UserService.myInstance == null) {
-            UserService.myInstance = new UserService()
-        }
-        return this.myInstance
-    }
-
-    setUser = (user) =>{
-        this.state.user = user;
-        this.state.userType = "U"   
- 
-    }
-
-    getCurrentUser = () =>{
-        return this.state.user;
-    }
-
-    getUserType(){
-        return this.state.userType;
-    }
+const userWithRoles = [
+   { username: 'admin', password: 'admin', role: 'admin' },
+   { username: 'test user', password: 'test', role: 'user' },
+   { username: 'another admin', password: 'test', role: 'admin' },
+   { username: 'alice', password: 'alice', role: 'user' },
+  
     
-    logout(){
-        this.state.userType = "G";
-        console.log(this.state.userType)
+]
+
+    exports.authenticateUser = (username, password) => {
+      const currentUser = userWithRoles.find(user => user.username === username && user.password === password);
+      return currentUser;
+
+    };
+
+    exports.getUsers = () => {
+       return fetch('https://webdev-neu-backend.herokuapp.com/user')
+        .then(response => {
+            return response.json()
+        }).then(data => {
+           return data;
+        })
+        .catch(error => {
+            console.log('we encountered an error wile fetching users');
+        })
     }
 
+    exports.setRole = (role) => {
+       return localStorage.setItem('role', role);
+    }
 
-    findAllUsers =  () =>
-        fetch(this.Url+"user")
-            .then(response => {
-                return response.json();
-            })
-            
-    deleteUser = (id)=>
-        fetch(this.Url + "user/"+id,{
-            method: 'DELETE'
-            })
-
-    login = (username, pass)=>
-        this.findAllUsers().then(
-            response =>{
-                let potUser;
-                let users = [];
-                users = response;
-                users.forEach(
-                    user =>{
-                        if(user.username == username){
-                            potUser = user;
-                        }
-                    }
-                )
-                if(potUser.pw == pass){
-                    return potUser;
-                }
-                else{
-                    return "error";
-                }
-            }
-        )
-        
-
-    createNewUser = (newUser) =>
-        fetch(this.Url + "user", {
-            body: JSON.stringify(newUser),
-            headers: {
-            'Content-Type': 'application/json' },
-            method: 'POST'
-            }).then(resposne => {
-                if(resposne.status == 200){
-                    return "done"
-                } else {
-                    return "error"
-                }
-            });
-    
-    // login APIs needed 
-
-    
-}
+    exports.getRole = () => {
+        return localStorage.getItem('role');
+    }

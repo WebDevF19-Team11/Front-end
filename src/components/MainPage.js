@@ -12,25 +12,28 @@ import AdminPage from './AdminPage'
 import ProfilePage from './profilePage'
 import SearchProductPage from './SearchProductPage'
 import SearchProductRedirectPage from './SearchProductRedirectPage'
-import UserService from '../Services/UserService';
+import UserService, { getRole } from '../Services/UserService';
 import { Switch } from 'react-router';
 import { BrowserRouter, Route } from 'react-router-dom'
-
-let userService = UserService.getInstance();
 
 export default class MainPage extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
-          userType: "A"
+            userType: getRole()
         }
+
     }
+
+    emitNewUserType = (userType) => this.setState({ userType });
+
     render() {
         return (
             <BrowserRouter>
                 <Switch>
                     <div>
-                            <NaviagationBar userType={this.state.userType}/>
+                            <NaviagationBar userType={this.state.userType} emitNewUserType={this.emitNewUserType} />
                             <Route path='/ItemList' 
                             component={ItemList}/>
                             <Route path='/ItemPage/:sku' 
@@ -42,7 +45,7 @@ export default class MainPage extends React.Component {
                             <Route path='/contact' 
                             component={ContactUsPage}/>
                             <Route path='/login' 
-                            component={LoginPage}/>
+                            component={(() => <LoginPage emitNewUserType={this.emitNewUserType} />)}/>
                             <Route path='/register' 
                             component={RegisterPage}/>
                             <Route path='/offer' 
