@@ -14,7 +14,7 @@ export default class ProjectPrototype extends React.Component {
     }
 
     findItemByTitle = title =>
-        fetch(`https://webdev-neu-backend.herokuapp.com/api/amazon/product/?searchText=${title}`)
+        fetch(`https://webdev-team11-project-backend.herokuapp.com/api/amazon/product/?searchText=${title}`)
         .then(response => response.json())
         .then(response => {
             this.setState({
@@ -23,7 +23,7 @@ export default class ProjectPrototype extends React.Component {
         });
 
     selectItem = item =>
-    fetch(`https://webdev-neu-backend.herokuapp.com/api/amazon/product/${item}`)
+    fetch(`https://webdev-team11-project-backend.herokuapp.com/api/amazon/product/${item}`)
         .then(response => response.json())
         .then(item => {
             console.log(item)

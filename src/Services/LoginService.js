@@ -1,5 +1,5 @@
 export default class LoginService {
-    Url = "https://webdev-neu-backend.herokuapp.com/";
+    Url = "https://webdev-team11-project-backend.herokuapp.com/";
     constructor() {}
 
     login(username, password) {

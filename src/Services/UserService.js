@@ -16,7 +16,7 @@ const userWithRoles = [
     };
 
     exports.getUsers = () => {
-       return fetch('https://webdev-neu-backend.herokuapp.com/user')
+       return fetch('https://webdev-team11-project-backend.herokuapp.com/user')
         .then(response => {
             return response.json()
         }).then(data => {

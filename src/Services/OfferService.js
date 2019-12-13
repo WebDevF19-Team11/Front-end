@@ -1,6 +1,6 @@
 export default class OfferService {
     static myInstance = null;
-    Url = "https://webdev-neu-backend.herokuapp.com/";
+    Url = "https://webdev-team11-project-backend.herokuapp.com/";
     static getInstance() {
         if (OfferService.myInstance == null) {
             OfferService.myInstance = new OfferService()

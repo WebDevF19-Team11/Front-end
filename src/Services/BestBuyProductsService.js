@@ -1,6 +1,6 @@
 export default class BestBuyProductsService {
     static myInstance = null;
-    Url = "https://webdev-neu-backend.herokuapp.com/";
+    Url = "https://webdev-team11-project-backend.herokuapp.com/";
     static getInstance() {
         if(BestBuyProductsService.myInstance == null) {
             BestBuyProductsService.myInstance = new BestBuyProductsService()
