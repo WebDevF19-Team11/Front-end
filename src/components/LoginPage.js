@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { setRole, authenticateUser } from '../Services/UserService';
+import LoginService from '../Services/LoginService';
 
  class LoginPage extends Component {
     constructor(props) {
@@ -17,17 +18,27 @@ import { setRole, authenticateUser } from '../Services/UserService';
         this.setState({[event.target.name]: event.target.value});
     }
 
-    submitLogin = () => {
-       const user = authenticateUser(this.state.username, this.state.password);
-       if (user) {
-        setRole(user.role);
-        this.props.emitNewUserType(user.role);
-        this.props.history.push('/profile');
-        return;
-       }
+    // submitLogin = () => {
+    //    const user = authenticateUser(this.state.username, this.state.password);
+    //    if (user) {
+    //     setRole(user.role);
+    //     this.props.emitNewUserType(user.role);
+    //     this.props.history.push('/profile');
+    //     return;
+    //    }
 
-       this.setState({userError: 'User not found', username: '', password: ''})
+    //    this.setState({userError: 'User not found', username: '', password: ''})
         
+    // }
+
+    submitLogin(){
+        const loginService = new LoginService();
+        loginService.login(this.state.username, this.state.password).then((user) => {
+            localStorage.setItem("user", this.state.username);
+            setRole(user.roles[0].toLowerCase());
+            this.props.emitNewUserType(user.roles[0].toLowerCase());
+            this.props.history.push('/profile');
+        });
     }
 
     render() {

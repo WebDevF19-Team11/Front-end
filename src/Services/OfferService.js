@@ -1,6 +1,7 @@
 export default class OfferService {
     static myInstance = null;
-    Url = "https://webdev-neu-backend.herokuapp.com/";
+    //Url = "https://webdev-neu-backend.herokuapp.com/";
+    Url = "http://localhost:8080/";
     static getInstance() {
         if (OfferService.myInstance == null) {
             OfferService.myInstance = new OfferService()
@@ -26,6 +27,10 @@ export default class OfferService {
             method: 'POST'
         }).then(response => response.json());
 
-
+    findAllBySellerUsername(username) {
+        return fetch(this.Url + "offer/" + username, {
+            method: 'GET'
+        }).then(response => { return response.json() })
+    }
 
 }
